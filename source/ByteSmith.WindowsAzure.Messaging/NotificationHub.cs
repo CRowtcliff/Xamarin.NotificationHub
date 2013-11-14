@@ -301,6 +301,7 @@ namespace ByteSmith.WindowsAzure.Messaging
 
 			if (localRegistration != null) {
 				try {
+					localRegistration.Tags = registration.Tags;
 					registration = await UpdateRegistration (localRegistration);
 				} catch (WebException ex) {
 					if (((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.NotFound)
